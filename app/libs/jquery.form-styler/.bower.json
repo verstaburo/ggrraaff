@@ -1,0 +1,32 @@
+{
+  "name": "jquery.form-styler",
+  "version": "1.7.8",
+  "main": [
+    "jquery.formstyler.min.js",
+    "jquery.formstyler.css"
+  ],
+  "description": "jQuery-плагин для стилизации элементов HTML-форм",
+  "keywords": [
+    "jquery",
+    "form",
+    "styler",
+    "dimox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.txt",
+    "demo"
+  ],
+  "homepage": "https://github.com/Dimox/jQueryFormStyler",
+  "_release": "1.7.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.7.8",
+    "commit": "bf857e8d01e9e32a4ec3099582f5faf8524e94ef"
+  },
+  "_source": "https://github.com/Dimox/jQueryFormStyler.git",
+  "_target": "^1.7.8",
+  "_originalSource": "jquery.form-styler",
+  "_direct": true
+}
