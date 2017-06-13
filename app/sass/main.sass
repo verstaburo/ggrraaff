@@ -529,7 +529,7 @@ input
 
 .map-footer-wrap
     position: relative
-    z-index: 30
+    z-index: 25
 
 
 .pswp__caption
@@ -547,7 +547,7 @@ input
     top: 50%
     transform: translate(100%, -50%)
     right: 0
-    z-index: 30
+    z-index: 31
     transition: transform .15s ease-out
 
     &.open
@@ -1072,6 +1072,7 @@ input
         padding: 0
         position: relative
         float: left
+        z-index: 31
 
         > li
             float: left
@@ -1096,7 +1097,7 @@ input
                 padding: 0
                 background: #364b5a
                 max-width: 255px
-                z-index: 20
+                z-index: 31
                 display: none
 
                 li
@@ -2354,7 +2355,7 @@ input
         width: 34.2%
         min-height: calc(100vh + 400px)
         background: #fff url('../img/icons/column-label.png') repeat-x
-        overflow-y: scroll
+        //overflow-y: scroll
 
         &.fixed
             position: fixed
