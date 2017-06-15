@@ -134,7 +134,8 @@ figure
 
 
 .container
-    width: 1200px
+    //width: 1200px
+    max-width: 1200px
     padding: 0 24px
     margin: 0 auto
 
@@ -155,6 +156,7 @@ figure
 
 .left
     float: left
+
 
 
 .right
@@ -3215,6 +3217,11 @@ input
         border-radius: 0
         margin-top: 0
 
+        ul
+            overflow: inherit
+            overflow-x: inherit
+            position: inherit
+
         &__item,
         li
             color: #374c5b
@@ -3516,7 +3523,7 @@ input
     &__input-submit
         min-width: 238px
         height: 49px
-        padding-top: 3px
+        //padding-top: 3px
 
     &__service
         position: relative
