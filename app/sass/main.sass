@@ -327,9 +327,9 @@ span
 .jq-selectbox
 
     ul
-        height: auto
-        overflow-x: inherit !important
-        overflow: inherit !important
+        max-height: 150px
+        height: 100%
+        padding: 20px 0
 
     &__select
         border: 1px solid #6d7f77
@@ -369,7 +369,6 @@ span
         font-family: $bspt
         font-size: 14px
         text-align: left
-        padding: 20px 0
         display: none
         border: none
         border-radius: 0
@@ -3516,7 +3515,7 @@ input
 
         .jq-selectbox__dropdown
           max-height: 130px
-          overflow: auto
+          //overflow: auto
 
     &__input-submit-wrap
         text-align: right
