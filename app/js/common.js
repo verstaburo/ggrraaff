@@ -1,5 +1,7 @@
 $(function () {
 
+    svg4everybody();
+
     $(window).scroll(function () {
         // if($(this).width() < 992) {
         if (!$('.toggle-mobile-menu').hasClass('active')) {

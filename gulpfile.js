@@ -68,7 +68,8 @@ gulp.task('scripts', function() {
 		'app/libs/photoswipe/dist/photoswipe.min.js',
 		'app/libs/photoswipe/dist/photoswipe-ui-default.min.js',
 		'app/libs/jquery-touchswipe/jquery.touchSwipe.min.js',
-		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js'
+		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
+		'app/libs/svg4everybody/dist/svg4everybody.js'
 		// 'app/js/common.js', // Всегда в конце
 		])
 	.pipe(concat('scripts.min.js'))
@@ -84,7 +85,7 @@ gulp.task('browser-sync', function() {
 		},
 		notify: false,
 		// tunnel: true,
-		// tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
+		tunnel: "verstagraf" //Demonstration page: http://projectmane.localtunnel.me
 	});
 });
 
