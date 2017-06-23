@@ -1,7 +1,5 @@
 $(function () {
 
-    svg4everybody();
-
     $(window).scroll(function () {
         // if($(this).width() < 992) {
         if (!$('.toggle-mobile-menu').hasClass('active')) {
@@ -575,7 +573,7 @@ $(function () {
 
                     figureEl = thumbElements[i]; // <figure> element
 
-                    // include only element nodes 
+                    // include only element nodes
                     if (figureEl.nodeType !== 1) {
                         continue;
                     }
@@ -714,7 +712,7 @@ $(function () {
                 // PhotoSwipe opened from URL
                 if (fromURL) {
                     if (options.galleryPIDs) {
-                        // parse real index when custom PIDs are used 
+                        // parse real index when custom PIDs are used
                         // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
                         for (var j = 0; j < items.length; j++) {
                             if (items[j].pid == index) {
@@ -793,6 +791,18 @@ $(window).resize(function () {
         $('.navbar--mobile').hide();
         $('.toggle-mobile-menu').removeClass('active');
     }
+
+    $(window).resize(function() {
+
+        if ($(window).height() > 2000) {
+            $('.phone').addClass('active');
+            $('.navbar__item').addClass('active');
+        } else {
+            $('.phone').removeClass('active');
+            $('.navbar__item').removeClass('active');
+        }
+
+    });
 });
 
 
@@ -804,15 +814,24 @@ $(document).ready(function () {
             $(this).appendTo('.news__right-column');
         }
     });
+
+
+    //fixed__info
+
+    $('.fixed-info__item').on('click', function () {
+        $('.fixed-info__title2').addClass("active").siblings().removeClass("active");
+        $('.fixed-info__title1').addClass("active");
+    });
+
+    $('.fixed-info__item__input-submit').on('click', function () {
+        $('.fixed-info__title3').addClass("active").siblings().removeClass("active");
+        $('.fixed-info__title1').addClass("active");
+    });
+
+    $('.fixed-info__item__success-send__button').on('click', function () {
+        $('.fixed-info__title1').removeClass("active").siblings().removeClass("active");
+    });
+
+
+
 });
-
-
-
-
-
-
-
-
-
-
-

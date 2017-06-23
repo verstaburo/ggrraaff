@@ -564,8 +564,8 @@ input
         .fixed-info
             &__toggle-button
                 .icon
-                    &::before
-                        opacity: 0
+                &::before
+                    opacity: 0
 
     &__toggle-button
         position: absolute
@@ -643,7 +643,7 @@ input
                 vertical-align: middle
                 transition: all .15s ease-out
 
-    &__title
+    &__title1
         background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
         font-family: $mtb
         font-size: 43px
@@ -652,9 +652,41 @@ input
         line-height: 90px
         padding-left: 42px
         padding-right: 62px
+        display: block
+
+        &.active
+            display: none
 
         span
             color: #8ac654
+
+    &__title2
+        background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+        font-family: $mtb
+        font-size: 27px
+        color: #fff
+        height: 100px
+        line-height: 90px
+        padding-left: 42px
+        padding-right: 62px
+        display: none
+
+        &.active
+            display: block
+
+    &__title3
+        background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+        font-family: $mtb
+        font-size: 27px
+        color: #fff
+        height: 100px
+        line-height: 90px
+        padding-left: 42px
+        padding-right: 62px
+        display: none
+
+        &.active
+            display: block
 
     &__wrap
         position: relative
@@ -1052,7 +1084,10 @@ input
     font-family: $csb
     color: #7fc241
     margin-top: 16px
-    margin-right: 25px
+    margin-right: 33px
+
+    &.active
+        margin-right: 0
 
     .icon
         vertical-align: middle
@@ -1152,6 +1187,9 @@ input
         display: block
         line-height: 37px
 
+        &.active
+            padding: 0 4px
+
         &:hover
             background: #364c5b
             color: #fff
@@ -1231,8 +1269,8 @@ input
                 &__item
                     &__icon
                         .icon
-                            top: 8px
-                            font-size: 70px
+                        top: 8px
+                        font-size: 70px
 
         &:nth-child(3)
             background: rgba(47,80,50,.8)
@@ -1241,7 +1279,7 @@ input
                 &__item
                     &__icon
                         .icon
-                            font-size: 70px
+                        font-size: 70px
 
         &:nth-child(4)
             background: rgba(47,80,50,.9)
@@ -1250,8 +1288,8 @@ input
                 &__item
                     &__icon
                         .icon
-                            font-size: 55px
-                            top: 6px
+                        font-size: 55px
+                        top: 6px
 
         &:nth-child(5)
             background: rgba(47,80,50,1)
@@ -1260,9 +1298,9 @@ input
                 &__item
                     &__icon
                         .icon
-                            font-size: 55px
-                            top: 6px
-                            right: 4px
+                        font-size: 55px
+                        top: 6px
+                        right: 4px
 
         &:hover
             background: rgba(29,41,49,.8)
@@ -1512,6 +1550,7 @@ input
 
         .icon
             font-size: 16px
+            //fill: #364c5b
             color: #364c5b
 
 /* ======================================================== */
@@ -1704,7 +1743,7 @@ input
                     .advantages
                         &__icon
                             .icon
-                                stroke: #000000 !important
+                            stroke: #000000 !important
 
     &__visible-block
         font-family: $bspb
@@ -1746,7 +1785,7 @@ input
             .advantages
                 &__icon
                     .icon
-                        stroke: #000000 !important
+                    stroke: #000000 !important
 
     &__icon
         display: inline-block
@@ -1820,7 +1859,7 @@ input
             transition: all .25s ease-in-out
 
             &:hover
-              opacity: .8
+                opacity: .8
 
     span
         display: none
@@ -1983,7 +2022,7 @@ input
 /* ======================================================== */
 
 .main-content
-    // background: #eff5f2
+// background: #eff5f2
 
 /* ======================================================== */
 /* End main-content */
@@ -2367,12 +2406,12 @@ input
 
         &.fixed
             position: fixed
-            top: 11px
+            top: 112px
             left: 0
             z-index: 10
 
             .select-office
-                //margin-top: 130px
+        //margin-top: 130px
 
         &.relative
             position: relative
@@ -2507,6 +2546,7 @@ input
 
                 .icon
                     font-size: 50px
+                    fill: #7bbc41
 
             .text
                 display: inline-block
@@ -2785,74 +2825,74 @@ input
 
     &--profession
         .two-columns
-            &__banner
-                &__flex-wrap
-                    align-items: flex-start
-                    padding-top: 89px
+        &__banner
+            &__flex-wrap
+                align-items: flex-start
+                padding-top: 89px
 
-            &__table
-                margin-top: 24px
+        &__table
+            margin-top: 24px
 
-                &.active
-                    .two-columns__table__title
-                        background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+            &.active
+                .two-columns__table__title
+                    background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
 
-                        &::after
-                            transform: rotate(0)
-                            top: 50%
-                            margin-top: -1px
-
-                        .text
-                            color: #fff
-                            border-bottom: none
-
-                &__title
-                    background: #fff
-                    position: relative
-                    cursor: pointer
-
-                    &::before,
                     &::after
-                        content: ""
-                        background: #8ac654
-                        position: absolute
-                        width: 34px
-                        height: 2px
-                        transform-origin: 18px 0
-                        transition: all .2s ease-out
-
-                    &::before
+                        transform: rotate(0)
                         top: 50%
                         margin-top: -1px
-                        right: 25px
-
-                    &::after
-                        transform: rotate(90deg)
-                        right: 25px
-                        top: 39px
-
-                    &:hover
-                        background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
-
-                        .text
-                            color: #8ac654
-                            border-color: #fff
 
                     .text
-                        font-size: 20px
-                        border-bottom: 1px solid #8ac654
-                        color: #2f404c
-                        line-height: normal
+                        color: #fff
+                        border-bottom: none
 
-                &__wrap
-                    display: none
+            &__title
+                background: #fff
+                position: relative
+                cursor: pointer
 
-                &__td
-                    width: 132px
+                &::before,
+                &::after
+                    content: ""
+                    background: #8ac654
+                    position: absolute
+                    width: 34px
+                    height: 2px
+                    transform-origin: 18px 0
+                    transition: all .2s ease-out
 
-                    &:last-child
-                        // width: 470px
-                        width: calc(100% - 280px)
+                &::before
+                    top: 50%
+                    margin-top: -1px
+                    right: 25px
+
+                &::after
+                    transform: rotate(90deg)
+                    right: 25px
+                    top: 39px
+
+                &:hover
+                    background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+
+                    .text
+                        color: #8ac654
+                        border-color: #fff
+
+                .text
+                    font-size: 20px
+                    border-bottom: 1px solid #8ac654
+                    color: #2f404c
+                    line-height: normal
+
+            &__wrap
+                display: none
+
+            &__td
+                width: 132px
+
+                &:last-child
+                    // width: 470px
+                    width: calc(100% - 280px)
 
 
     &__prices
@@ -3247,7 +3287,7 @@ input
 
     &--different
         .jq-selectbox
-            height: 47px
+        height: 47px
 
         .jq-selectbox__select
             font-family: $bspt
@@ -3309,7 +3349,7 @@ input
 
             &__btn
                 .inner-block
-                    padding-top: 17px
+                padding-top: 17px
 
 
 .nav-blocks
@@ -3514,8 +3554,8 @@ input
         width: 100%
 
         .jq-selectbox__dropdown
-          max-height: 130px
-          //overflow: auto
+            min-height: 130px
+    //overflow: auto
 
     &__input-submit-wrap
         text-align: right
@@ -3524,7 +3564,7 @@ input
     &__input-submit
         min-width: 238px
         height: 49px
-        //padding-top: 3px
+    //padding-top: 3px
 
     &__service
         position: relative
@@ -3864,16 +3904,16 @@ input
 
         &--different
             .imprint
-                &__item
-                    width: 305px
-                    margin-right: 115px
+            &__item
+                width: 305px
+                margin-right: 115px
 
-                    &__title
-                        font-family: $bspb
+                &__title
+                    font-family: $bspb
 
-                    &__text
-                        font-size: 17px
-                        color: #6d7f77
+                &__text
+                    font-size: 17px
+                    color: #6d7f77
 
     &__title
         font-family: $mtb
@@ -4138,29 +4178,29 @@ input
 
         &--big
             .news
-                &__img-block
-                    display: inline-block
-                    vertical-align: top
+            &__img-block
+                display: inline-block
+                vertical-align: top
 
-                &__right-side
-                    display: inline-block
-                    vertical-align: top
-                    width: calc(100% - 620px)
-                    margin-left: 46px
-                    padding-top: 50px
+            &__right-side
+                display: inline-block
+                vertical-align: top
+                width: calc(100% - 620px)
+                margin-left: 46px
+                padding-top: 50px
 
-                &__date
-                    margin-bottom: 3px
+            &__date
+                margin-bottom: 3px
 
-                &__title
-                    margin-bottom: 35px
+            &__title
+                margin-bottom: 35px
+                color: #364c5b
+
+                a
                     color: #364c5b
 
-                    a
-                        color: #364c5b
-
-                &__desc
-                    margin-bottom: 40px
+            &__desc
+                margin-bottom: 40px
 
     &__img-block
         overflow: hidden
@@ -4855,8 +4895,8 @@ input
 
         &__wrap
             .radio-content
-                &--paper
-                    width: 100%
+            &--paper
+                width: 100%
 
         &__item
             &__left-part-form
@@ -4917,6 +4957,18 @@ input
 
 
 @import "media" // Всегда в конце
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
