@@ -831,5 +831,10 @@ $(document).ready(function () {
         $('.fixed-info__title1').removeClass("active").siblings().removeClass("active");
     });
 
+    $('.fixed-info__item__icon').on('click', function(e) {
+        e.preventDefault();
+        $('#fixed__close')[0].click();
+    });
+
 
 });
