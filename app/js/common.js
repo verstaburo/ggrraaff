@@ -787,22 +787,21 @@ $(function () {
 
 
 $(window).resize(function () {
+
     if ($(window).width() > 1200) {
         $('.navbar--mobile').hide();
         $('.toggle-mobile-menu').removeClass('active');
     }
 
-    $(window).resize(function() {
 
-        if ($(window).height() > 2000) {
-            $('.phone').addClass('active');
-            $('.navbar__item').addClass('active');
-        } else {
-            $('.phone').removeClass('active');
-            $('.navbar__item').removeClass('active');
-        }
+    if ($(window).height() > 2000) {
+        $('.phone').addClass('active');
+        $('.navbar__item').addClass('active');
+    } else {
+        $('.phone').removeClass('active');
+        $('.navbar__item').removeClass('active');
+    }
 
-    });
 });
 
 
@@ -831,7 +830,6 @@ $(document).ready(function () {
     $('.fixed-info__item__success-send__button').on('click', function () {
         $('.fixed-info__title1').removeClass("active").siblings().removeClass("active");
     });
-
 
 
 });
