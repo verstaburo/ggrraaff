@@ -1039,6 +1039,7 @@ input
                 bottom: 36px
                 left: 39px
                 height: 50px
+                line-height: 50px
                 //padding-top: 4px
 
 
@@ -1060,6 +1061,7 @@ input
     padding-bottom: 22px
     position: relative
     z-index: 30
+    min-height: 112px
 
     &.fixed
         position: fixed
@@ -2419,7 +2421,7 @@ input
         //min-height: calc(100vh + 400px)
         min-height: calc(100vh + 0px)
         background: #fff url('../img/icons/column-label.png') repeat-x
-        padding-top: 1px
+        //padding-top: 1px
         //overflow-y: scroll
 
         &.fixed
@@ -2435,6 +2437,14 @@ input
             position: relative
             z-index: 10
             //top: 0 !important
+
+        //safary
+
+        &.fixed1
+            position: fixed
+            top: 113px
+            left: 0
+            z-index: 10
 
 
         .map-mini
