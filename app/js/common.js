@@ -872,5 +872,11 @@ $(document).ready(function () {
     });
 
 
+    $(".js-nextstep-button").click(function(e){
+        e.preventDefault();
+        $(this).parents('.application__item').find('.application__item__title')[0].click();
+        $(this).parents('.application__item').next().find('.application__item__title')[0].click();
+    });
+
 
 });
