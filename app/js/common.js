@@ -879,4 +879,13 @@ $(document).ready(function () {
     });
 
 
+    //menu
+
+    $('.application__item__title').click(function(){
+        setTimeout(function(){
+            $(window).trigger('scroll');
+        }, 250);
+    });
+
+
 });
