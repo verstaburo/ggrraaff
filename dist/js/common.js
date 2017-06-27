@@ -794,14 +794,16 @@ $(window).resize(function () {
     }
 
 
-    if ($(window).height() > 900) {
+    if ($(window).height() > 1000) {
         $('.phone').addClass('active');
         $('.navbar__item').addClass('active');
         $('.phone .icon').addClass('active');
+        $('.about__item .icon').addClass('active');
     } else {
         $('.phone').removeClass('active');
         $('.navbar__item').removeClass('active');
         $('.phone .icon').removeClass('active');
+        $('.about__item .icon').removeClass('active');
     }
 
 });
@@ -869,6 +871,21 @@ $(document).ready(function () {
         }
     });
 
+
+    $(".js-nextstep-button").click(function(e){
+        e.preventDefault();
+        $(this).parents('.application__item').find('.application__item__title')[0].click();
+        $(this).parents('.application__item').next().find('.application__item__title')[0].click();
+    });
+
+
+    //menu
+
+    $('.application__item__title').click(function(){
+        setTimeout(function(){
+            $(window).trigger('scroll');
+        }, 250);
+    });
 
 
 });
