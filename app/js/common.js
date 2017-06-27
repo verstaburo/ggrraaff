@@ -797,9 +797,11 @@ $(window).resize(function () {
     if ($(window).height() > 900) {
         $('.phone').addClass('active');
         $('.navbar__item').addClass('active');
+        $('.phone .icon').addClass('active');
     } else {
         $('.phone').removeClass('active');
         $('.navbar__item').removeClass('active');
+        $('.phone .icon').removeClass('active');
     }
 
 });
