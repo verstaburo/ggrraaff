@@ -794,12 +794,14 @@ $(window).resize(function () {
     }
 
 
-    if ($(window).height() > 2000) {
+    if ($(window).height() > 900) {
         $('.phone').addClass('active');
         $('.navbar__item').addClass('active');
+        $('.phone .icon').addClass('active');
     } else {
         $('.phone').removeClass('active');
         $('.navbar__item').removeClass('active');
+        $('.phone .icon').removeClass('active');
     }
 
 });
@@ -835,6 +837,38 @@ $(document).ready(function () {
         e.preventDefault();
         $('#fixed__close')[0].click();
     });
+
+
+    //input
+
+    function checkinput() {
+        $('input').each(function(){
+            if ($(this).val().length > 0) {
+                $(this).removeClass('input_empty');
+            } else {
+                $(this).addClass('input_empty');
+            }
+        });
+    }
+
+    $('input').on('keyup change', function(){
+        if ($(this).val().length > 0) {
+            $(this).removeClass('input_empty');
+        } else {
+            $(this).addClass('input_empty');
+        }
+    });
+
+    $('form').submit(function(e){
+        e.preventDefault();
+        checkinput();
+        if ($(this).find('.input_empty').length > 0) {
+            return false;
+        } else {
+            // Действие при успешной отправке формы
+        }
+    });
+
 
 
 });
