@@ -367,6 +367,7 @@ $(function () {
         } else {
             $('.two-columns__left-column').removeClass('fixed');
         }
+
     });
 
     $('.level__line').each(function () {
