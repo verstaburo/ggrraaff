@@ -794,14 +794,16 @@ $(window).resize(function () {
     }
 
 
-    if ($(window).height() > 900) {
+    if ($(window).height() > 1000) {
         $('.phone').addClass('active');
         $('.navbar__item').addClass('active');
         $('.phone .icon').addClass('active');
+        $('.about__item .icon').addClass('active');
     } else {
         $('.phone').removeClass('active');
         $('.navbar__item').removeClass('active');
         $('.phone .icon').removeClass('active');
+        $('.about__item .icon').removeClass('active');
     }
 
 });
