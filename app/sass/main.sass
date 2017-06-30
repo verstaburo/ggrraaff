@@ -2212,11 +2212,12 @@ input
 
     &__img-block
         position: relative
-        overflow: hidden
+        //overflow: hidden
 
         img
             display: block
             transition: transform .15s ease-out
+
 
     &__name
         font-family: $mtb
@@ -4513,6 +4514,12 @@ input
 
 .news__title-main
   color: #2f404c
+
+.news__img-block
+    overflow: inherit
+
+.news__img-block-scale
+    overflow: hidden
 
 /* ======================================================== */
 /* End news */
