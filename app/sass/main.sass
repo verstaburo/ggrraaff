@@ -4501,7 +4501,31 @@ input
   display: block
 
   img
-    width: 100%
+    width: 100% !important
+    height: auto
+
+    @media only screen and (max-width: 1200px)
+      height: 262px !important
+
+
+    @media only screen and (max-width: 992px)
+      height: 337px !important
+      width: inherit !important
+
+    @media only screen and (max-width: 767px)
+      height: 223px !important
+      width: 100% !important
+
+  @media only screen and (max-width: 1200px)
+      height: 262px !important
+
+
+  @media only screen and (max-width: 992px)
+      height: 337px !important
+
+  @media only screen and (max-width: 767px)
+    height: 223px !important
+
 
 .news__right-side-main
   padding: 20px 50px
