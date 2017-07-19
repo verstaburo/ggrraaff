@@ -92,6 +92,8 @@ ul
             border-radius: 50%
             box-sizing: border-box
 
+input, input[type="submit"], input[type="password"], input[type="login"], button 
+    border-radius: 0;
 
 figure
     margin: 0
@@ -121,16 +123,14 @@ figure
     position: relative
     z-index: 4
     background: #eff5f2 url('../img/icons/main-wrapper-label.png') repeat-x
-    flex: 1 0
     display: flex
     flex-direction: column
 
     &.fixed-menu
         // padding-top: 60px
-        padding-top: 113px
+        //padding-top: 113px
 
     .main-content
-        flex: 1 0
 
 
 .container
@@ -622,13 +622,14 @@ input
 
         .close-btn
             position: absolute
-            top: 33px
+            top: 50px
             right: 15px
             width: 34px
             height: 34px
             text-align: center
             line-height: 34px
             cursor: pointer
+            transform: translate(0, -50%);
             transition: background .15s ease-out
 
             &:hover
@@ -645,15 +646,18 @@ input
                 transition: all .15s ease-out
 
     &__title1
+        box-sizing: border-box
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
         background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
         font-family: $mtb
         font-size: 43px
         color: #fff
         height: 100px
-        line-height: 90px
-        padding-left: 42px
-        padding-right: 62px
-        display: block
+        padding: 10px 62px 10px 42px
+        display: flex
+        line-height: 50px
 
         &.active
             display: none
@@ -662,32 +666,38 @@ input
             color: #8ac654
 
     &__title2
+        box-sizing: border-box
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
         background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
         font-family: $mtb
         font-size: 27px
         color: #fff
         height: 100px
-        line-height: 90px
-        padding-left: 42px
-        padding-right: 62px
+        line-height: 40px
+        padding: 10px 62px 10px 42px
         display: none
 
         &.active
-            display: block
+            display: flex
 
     &__title3
+        box-sizing: border-box
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
         background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
         font-family: $mtb
         font-size: 27px
         color: #fff
         height: 100px
-        line-height: 90px
-        padding-left: 42px
-        padding-right: 62px
+        line-height: 40px
+        padding: 10px 62px 10px 42px;
         display: none
 
         &.active
-            display: block
+            display: flex
 
     &__wrap
         position: relative
@@ -1057,11 +1067,9 @@ input
 
 .main-header
     background: #fff
-    padding-top: 25px
-    padding-bottom: 22px
+    padding: 28px 0
     position: relative
     z-index: 30
-    min-height: 112px
 
     &.fixed
         position: fixed
@@ -1074,9 +1082,11 @@ input
 .logo
     width: 355px
     margin-right: 50px
+    order: 1
 
     a
         display: block
+        line-height: 0
 
     img
         width: 354px
@@ -1084,34 +1094,34 @@ input
 
 
 .phone
+    position: relative
     font-family: $csb
     color: #7fc241
-    margin-top: 16px
     margin-right: 33px
-
-    &.active
-        margin-right: 0
-        margin-top: 10px
-        line-height: 37px
+    order: 2
+    padding-left: 37px
 
     .icon
-        vertical-align: middle
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translate(0, -50%);
         font-size: 30px
-        margin-right: 7px
-        position: relative
-        top: -2px
+        width: 28px
+        height: 30px
 
         &.active
-            margin-right: 0
             width: 20px
             height: 20px
 
 
 .navbar
+    order: 3
     font-family: $bspsb
     color: #7fc241
     text-transform: uppercase
-    margin-top: 12px
+    margin-right: auto
+    box-sizing: border-box
     transition: transform .15s ease-out
 
     &.move-right
@@ -1124,11 +1134,17 @@ input
         margin: 0
         padding: 0
         position: relative
-        float: left
         z-index: 31
+        font-size: 0
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+        align-content: flex-start
+        flex-wrap: wrap
 
         > li
-            float: left
+            display: inline-block
             list-style: none
             padding: 0
             font-size: 16px
@@ -1193,12 +1209,8 @@ input
         text-decoration: none
         padding: 0 7px
         transition: all .15s ease-out
-        height: 33px
         display: block
-        line-height: 37px
-
-        &.active
-            padding: 0 4px
+        line-height: 33px
 
         &:hover
             background: #364c5b
@@ -1206,13 +1218,22 @@ input
 
 
 .signin-button
-    margin-top: 11px
+    order: 4
+
+.toggle-mobile-menu
+    display: none
 
 /* ======================================================== */
 /* End main-header */
 /* ======================================================== */
 
-
+.svg-gradients
+    position: absolute
+    top: 0
+    left: 0
+    width: 1px
+    height: 1px
+    opacity: 0
 
 
 /* ======================================================== */
@@ -1246,6 +1267,17 @@ input
         margin-bottom: 75px
         margin-top: 0
         font-weight: normal
+        
+        .gradient-text
+          width: 100%
+          
+          svg
+            width: 100%
+            height: 40px;
+          
+          &__text
+            font-size: 40px
+            fill: url(#textGradient1)
 
         span
             display: block
@@ -1902,13 +1934,27 @@ input
         text-decoration: none
 
     &__title
-        background: linear-gradient(to bottom, #7ec041 0%, #6aa443 100%)
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
         color: #7ec041
         font-family: $mtb
         font-size: 43px
         margin-bottom: 38px
+        
+        .gradient-text
+            width: 100%
+            
+            svg
+                width: 100%
+                height: 43px
+            
+            &__text
+                font-size: 43px
+                fill: url(#textGradient2)
+                
+                &--main
+                    display: block
+                
+                &--mobile
+                    display: none
 
     &__flex-wrap
         display: flex
@@ -2211,8 +2257,8 @@ input
                 transform: scale(1.1)
 
     &__img-block
+        overflow: hidden
         position: relative
-        //overflow: hidden
 
         img
             display: block
@@ -2303,24 +2349,28 @@ input
 
             img
                 display: block
+        
+        &-describe
+            position: absolute
+            left: 0
+            bottom: 0
+            width: 100%
+            max-height: 100%
+            padding: 20px 30px
+            box-sizing: border-box
+            z-index: 3
 
         &__name
-            position: absolute
             font-family: $mtb
             font-size: 30px
             color: #fff
-            z-index: 3
-            bottom: 55px
-            padding: 0 30px
             width: 100%
 
         &__post
             font-size: 24px
+            line-height: 1.5em
             color: #8ac654
-            position: absolute
-            bottom: 20px
-            padding: 0 30px
-            z-index: 3
+            width: 100%
 
         &__item
             margin-bottom: 45px
@@ -2409,6 +2459,10 @@ input
 
 .two-columns
     min-height: 100vh
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
 
     &::before,
     &::after
@@ -2558,8 +2612,66 @@ input
 
     &__table
         margin-top: 64px
-
+        background: #fff;
+            
         &__title
+            font-family: $mtb
+            font-size: 30px
+            color: #2f404c
+            position: relative
+            height: 100px
+            padding: 21px 25px 26px
+            width: 100%
+
+            &::before,
+            &::after
+                content: ""
+                background: #8ac654
+                position: absolute
+                width: 34px
+                height: 2px
+                transform-origin: 18px 0
+                transition: all .2s ease-out
+
+            &::before
+                top: 50%
+                margin-top: -1px
+                right: 25px
+
+            &::after
+                transform: rotate(90deg)
+                right: 25px
+                top: 51px
+
+            &:hover
+                background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+                color: #fff
+                cursor: pointer
+
+                .text
+                    color: #fff
+                    border-bottom-color: #fff
+
+            .text
+                display: inline
+                color: #2f404c
+                border-bottom: 1px solid #8ac654
+                padding-bottom: 2px
+
+            &.active
+                color: #fff
+                background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
+
+                &::after
+                    transform: rotate(0)
+                    top: 50%
+                    margin-top: -1px
+
+                .text
+                    color: #fff
+                    border-bottom: none
+
+        &__title--noopen
             background: url('../img/backgrounds/fixed-info-title-bg.png') repeat-x
             padding: 21px 25px 26px
             width: 100%
@@ -2585,7 +2697,10 @@ input
                 color: #fff
 
         &__wrap
-            //display: table
+            display: none
+            width: 100%
+        
+        &__wrap--noopen
             display: block
             width: 100%
 
@@ -3112,7 +3227,6 @@ input
     float: right
     margin-right: 18px
     padding-top: 25px
-    //padding-bottom: 140px
 
     &__selected
         border-bottom: 1px solid #eff5f3
@@ -3126,6 +3240,7 @@ input
 
             .icon
                 font-size: 54px
+                fill: url(#sidebar-gradient-icon)
 
         &__text
             display: inline-block
@@ -3151,6 +3266,7 @@ input
             padding-top: 7px
 
             .icon
+                fill: url(#sidebar-gradient-icon)
                 font-size: 47px
 
         &__right-side
@@ -3330,7 +3446,7 @@ input
 
             &-text
                 font-family: $bspt
-                font-size: 14px
+                font-size: 17px
                 line-height: normal
                 background: none
                 position: relative
@@ -3679,6 +3795,8 @@ input
             margin-right: 70px
 
     &__input-wrap
+        position: relative
+        
         &.w22
             width: 22%
 
@@ -3712,6 +3830,11 @@ input
 
     &__wrap-checkbox
         margin-bottom: 30px
+
+    &__text
+        font-family: $csr
+        font-size: 18px
+        color: #878e95
 
 /* ======================================================== */
 /* End application */
@@ -4095,7 +4218,18 @@ input
     &__form
 
     &__input-wrap
+        position: relative
         margin-bottom: 28px
+        
+        .placeholder-star
+            display: inline-block
+            position: absolute
+            top: 0
+            right: 5px
+            color: red
+            font-size: 18px
+            font-family: $csr
+            height: 100%
 
     &__input-text
         border: 1px solid #6d7f77
@@ -4106,6 +4240,10 @@ input
         font-size: 18px
         outline-style: none
         background: none
+        
+        &:focus ~ .placeholder-star,
+        &:valid ~ .placeholder-star
+            display: none
 
     &__textarea
         width: 100%
@@ -4140,6 +4278,7 @@ input
         &:active
             background: #3b5161
             color: #fff
+        
 
 /* ======================================================== */
 /* End contacts */
@@ -4170,6 +4309,15 @@ input
 
     .mix
         display: none
+    
+    &__container
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: flex-start
+        flex-wrap: wrap
+        align-content: flex-start
+        width: 100%
 
     &__filter
         margin-bottom: 60px
@@ -4203,36 +4351,49 @@ input
         a
             text-decoration: none
             display: block
+            width: 100%
+            overflow: hidden
 
             &:hover
                 img
                     transform: scale(1.1)
 
         &--big
+            width: 100%
+            margin-bottom: 50px
+            
+            a
+                display: flex
+                flex-direction: row
+                justify-content: flex-start
+                align-items: flex-start
+            
             .news
-            &__img-block
-                display: inline-block
-                vertical-align: top
+                
+                &__img-block
+                    width: calc(50% - 23px)
+                    display: inline-block
+                    vertical-align: top
 
-            &__right-side
-                display: inline-block
-                vertical-align: top
-                width: calc(100% - 620px)
-                margin-left: 46px
-                padding-top: 50px
+                &__right-side
+                    display: inline-block
+                    vertical-align: top
+                    width: calc(50% - 23px)
+                    margin-left: 46px
+                    padding-top: 50px
 
-            &__date
-                margin-bottom: 3px
+                &__date
+                    margin-bottom: 3px
 
-            &__title
-                margin-bottom: 35px
-                color: #364c5b
-
-                a
+                &__title
+                    margin-bottom: 35px
                     color: #364c5b
 
-            &__desc
-                margin-bottom: 40px
+                    a
+                        color: #364c5b
+
+                &__desc
+                    margin-bottom: 40px
 
     &__img-block
         overflow: hidden
@@ -4292,8 +4453,10 @@ input
 
     &__left-column
         float: left
-        width: 334px
-        margin-top: 50px
+        display: block
+        max-width: 334px
+        margin-right: 45px
+        transition: all .25s ease-in-out
 
         .news
             &__item
@@ -4353,8 +4516,9 @@ input
 
     &__right-column
         float: right
-        width: 773px
-        margin-top: 50px
+        display: block
+        max-width: 773px
+        transition: all .25s ease-in-out
 
         .news
             &__item
@@ -4450,6 +4614,7 @@ input
     &__inner-page
         float: left
         width: calc(100% - 380px)
+        margin-right: 46px
         background: #FFF
         overflow: hidden
 
@@ -4494,6 +4659,7 @@ input
             &__left-column
                 float: right
                 margin-top: 0
+                margin-right: 0
 
 .news__img-block-main
   width: 50%
@@ -4513,7 +4679,7 @@ input
       width: inherit !important
 
     @media only screen and (max-width: 767px)
-      height: 223px !important
+      height: auto !important
       width: 100% !important
 
   @media only screen and (max-width: 1200px)
@@ -4524,17 +4690,19 @@ input
       height: 337px !important
 
   @media only screen and (max-width: 767px)
+    height: auto !important
+
+  @media only screen and (max-width: 320px)
     height: 223px !important
 
 
 .news__right-side-main
   padding: 20px 50px
-  width: 50% !important
   float: left
   display: block
 
   @media only screen and (max-width : 767px)
-    width: 100% !important
+    width: 100%
 
 .news__title-main
   color: #2f404c
@@ -4618,21 +4786,31 @@ input
 
 .footer-top-block
     background: linear-gradient(-90deg, #519623, #76d222)
-    padding-top: 20px
-    padding-bottom: 14px
+    
+    .container
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
 
     .logo-footer
+        order: 1
         width: 263px
+        padding: 22px 0
+        font-size: 0
+        line-height: 0
+        margin-right: 40px
 
         img
             width: 100%
 
     .navbar-footer
+        order: 2
         font-family: $bspsb
         font-size: 18px
         color: #fff
         text-transform: uppercase
-        margin: 6px 0 0 92px
+        margin: 0 auto
 
         ul
             margin: 0
@@ -4715,12 +4893,16 @@ input
 
 
     .white-btn
+        order: 3
         width: 144px
         font-size: 18px
         height: 39px
         border-width: 2px
-        margin-top: 3px
+        margin-left: 40px
         line-height: 36px
+    
+    .toggle-mobile-menu
+        order: 2
 
 /* ======================================================== */
 /* End footer-top-block */
@@ -4923,9 +5105,12 @@ input
         margin: 0 3px
 
         .icon
+            width: 30px
+            height: 30px
             font-size: 30px
             position: relative
             top: -5px
+            fill: url(#social-link-gradient)
 
 
 .site-makers
@@ -4973,15 +5158,15 @@ input
     .fixed-info
         &__title1
             font-size: 20px
-            line-height: 70px
+            line-height: 30px
 
         &__title2
             font-size: 20px
-            line-height: 70px
+            line-height: 30px
 
         &__title3
             font-size: 20px
-            line-height: 70px
+            line-height: 30px
 
         &__content
             display: block
@@ -5047,10 +5232,20 @@ input
 
 
 .two-columns--application .two-columns__left-column .section
-    padding-bottom: 140px
+    padding-bottom: 25px
 
 .input_empty
     border: 1px solid red
+
+.main-header
+    .container
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+.star
+    vertical-align: super
+    color: red
 
 /* ======================================================== */
 /* End popups */

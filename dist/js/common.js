@@ -112,27 +112,34 @@ $(function () {
     $('.main-header .toggle-mobile-menu__button').click(function () {
         var headerPosition = $('.main-header').offset().top;
         if ($(this).parent().hasClass('active')) {
-            $(this).parent().removeClass('active');
             $('.navbar--mobile').slideUp(200);
-            $('.main-wrapper').css({
-                'height': '',
-                'overflow': ''
-            });
-            $('.main-header').css({
-                'top': ''
+            $(this).parent().removeClass('active');
+            $('.navbar--mobile').css({
+                'width' : '',
+                'right' : '',
+                'height' : '',
+                'overflow' : 'hidden'
             });
         } else {
             $(this).parent().addClass('active');
             $('.navbar--mobile').slideDown(200, function () {
-                $('.main-wrapper').css({
-                    'height': ($('.navbar--mobile').height() + 60 + 30) + 'px',
-                    'overflow': 'hidden'
-                }).scrollTop(headerPosition);
+                if($(this).height() > ($(window).height() - $('.main-header').outerHeight()) && $('.main-header').hasClass(
+                'fixed')) {
+                    $(this).css({
+                        'width' : $(this).width() + 20 + 'px',
+                        'right' : '-20px',
+                        'height' : 'calc(100vh - ' + $('.main-header').outerHeight() + 'px)',
+                        'overflow' : 'auto'
+                    });
+                } else {
+                    $(this).css({
+                        'width' : '',
+                        'right' : '',
+                        'height' : '',
+                        'overflow' : ''
+                    });
+                }
             });
-            $('.main-header').removeClass('fixed').css({
-                'top': headerPosition + 'px'
-            });
-            $('.wrapper').removeClass('fixed-menu');
         }
     });
 
@@ -218,16 +225,20 @@ $(function () {
         var radioToggle = $(this).attr('data-radio-toggle'),
             radioContentActive = $(this).parents('.fixed-info__item__hidden-block').find('div[data-radio-content="' + radioToggle + '"]');
 
-        if ($(window) > 767) {
-            if (radioToggle == 'radio-cont2') {
+        if ($(window).width() > 992) {
+            if (radioToggle === 'radio-cont2') {
                 $('.fixed-info-popup .fixed-info__wrap').css({
-                    'height': radioContentActive.height() + 125 + 'px'
+                    'height': radioContentActive.outer + 125 + 'px'
                 });
             } else {
                 $('.fixed-info-popup .fixed-info__wrap').css({
                     'height': ''
                 });
             }
+        } else if ($(window).width() > 767) {
+            $('.fixed-info-popup .fixed-info__wrap').css({
+                'height': radioContentActive.height() + 148 + 'px'
+            });
         } else {
             $('.fixed-info-popup .fixed-info__wrap').css({
                 'height': radioContentActive.height() + 62 + 'px'
@@ -370,45 +381,6 @@ $(function () {
     //
     // });
 
-    if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > ($('#mapG').offset().top - $('.two-columns__left-column').height() - 1) && st < 1) {
-                $('.two-columns__left-column').removeClass('fixed1').addClass('relative').css({
-                    'top': ($('#mapG').offset().top - $('.two-columns__left-column').height()) + 'px'
-                });
-                st++;
-            }
-            if ($(this).scrollTop() > 0 && $(this).scrollTop() < ($('#mapG').offset().top - $('.two-columns__left-column').height())) {
-                $('.two-columns__left-column').removeClass('relative').addClass('fixed1').css({
-                    'top': ''
-                });
-                st = 0;
-            } else {
-                $('.two-columns__left-column').removeClass('fixed1');
-            }
-
-        });
-    } else {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > ($('#mapG').offset().top - $('.two-columns__left-column').height() - 1) && st < 1) {
-                $('.two-columns__left-column').removeClass('fixed').addClass('relative').css({
-                    'top': ($('#mapG').offset().top - $('.two-columns__left-column').height()) + 'px'
-                });
-                st++;
-            }
-            if ($(this).scrollTop() > 0 && $(this).scrollTop() < ($('#mapG').offset().top - $('.two-columns__left-column').height())) {
-                $('.two-columns__left-column').removeClass('relative').addClass('fixed').css({
-                    'top': ''
-                });
-                st = 0;
-            } else {
-                $('.two-columns__left-column').removeClass('fixed');
-            }
-
-        });
-    }
-
-
     $('.level__line').each(function () {
         var percent = $(this).find('.inner-block').attr('data-percent');
 
@@ -518,6 +490,10 @@ $(function () {
     $('.application__item__title').click(function () {
         $(this).toggleClass('active').parent().find('.application__wrap').slideToggle(200);
     });
+    
+    $('.two-columns__table__title').click(function () {
+        $(this).toggleClass('active').closest().find('.two-columns__table__wrap').slideToggle(200);
+    });
 
     $('select').styler();
 
@@ -549,7 +525,7 @@ $(function () {
     var lastId,
         topMenu = $(".nav-blocks"),
         // topMenuHeight = topMenu.outerHeight() + 15,
-        topMenuHeight = 0,
+        topMenuHeight,
         // All list items
         menuItems = topMenu.find("a"),
         // Anchors corresponding to menu items
@@ -563,8 +539,13 @@ $(function () {
     // Bind click handler to menu items
     // so we can get a fancy scroll animation
     menuItems.click(function (e) {
-        var href = $(this).attr("href"),
-            offsetTop = href === "#" ? 0 : $(href).offset().top - topMenuHeight + 1;
+        
+        var href = $(this).attr('href').split('#').pop(), offsetTop;
+            if ($('.wrapper').hasClass('fixed-menu')) {
+                offsetTop = $('#' + href).offset().top - $('.main-header').outerHeight();
+            } else {
+                offsetTop = $('#' + href).offset().top - 2*$('.main-header').outerHeight();
+            }
 
         $('html, body').stop().animate({
             scrollTop: offsetTop
@@ -575,8 +556,9 @@ $(function () {
 
     // Bind to scroll
     $(window).scroll(function () {
+        topMenuHeight = $('.main-header').hasClass('fixed') ? $('.main-header').outerHeight() : 2*$('.main-header').outerHeight();
         // Get container scroll position
-        var fromTop = $(this).scrollTop() + topMenuHeight;
+        var fromTop = $(this).scrollTop() + topMenuHeight + 1;
 
         // Get id of current scroll item
         var cur = scrollItems.map(function () {
@@ -887,8 +869,10 @@ $(document).ready(function () {
         $('input').each(function(){
             if ($(this).val().length > 0) {
                 $(this).removeClass('input_empty');
+                $(this).siblings('.error-message').remove();
             } else {
                 $(this).addClass('input_empty');
+                $(this).after('<div class="error-message">' + $(this).attr('placeholder') + ' is empty' + '</div>');
             }
         });
     }
@@ -896,8 +880,10 @@ $(document).ready(function () {
     $('input').on('keyup change', function(){
         if ($(this).val().length > 0) {
             $(this).removeClass('input_empty');
+            $(this).siblings('.error-message').remove();
         } else {
             $(this).addClass('input_empty');
+            $(this).after('<div class="error-message">' + $(this).attr('placeholder') + ' is empty' + '</div>');
         }
     });
 
@@ -905,27 +891,79 @@ $(document).ready(function () {
         e.preventDefault();
         checkinput();
         if ($(this).find('.input_empty').length > 0) {
+            var firstErrEl = $(this).find('.input_empty')[0];
+            if($(firstErrEl).parents('.application__item').length > 0) {
+                if(!$(firstErrEl).parents('.application__item').find('.application__item__title').hasClass('active')) {
+                $(firstErrEl).parents('.application__item').find('.application__item__title')[0].click();
+                }
+            }
+            $(firstErrEl)[0].focus();
+            var topMenuHeight = $('.main-header').hasClass('fixed') ? $('.main-header').outerHeight() : 2*$('.main-header').outerHeight();
+            $('html, body').animate({ scrollTop: $(firstErrEl).offset().top - topMenuHeight }, 500);
             return false;
         } else {
             // Действие при успешной отправке формы
         }
     });
+    
 
 
     $(".js-nextstep-button").click(function(e){
         e.preventDefault();
         $(this).parents('.application__item').find('.application__item__title')[0].click();
         $(this).parents('.application__item').next().find('.application__item__title')[0].click();
+        var nextElem = $(this).parents('.application__item').next()[0];
+        var topMenuHeight = $('.main-header').hasClass('fixed') ? $('.main-header').outerHeight() : 2*$('.main-header').outerHeight();
+        setTimeout(function(){
+            $('html, body').animate({ scrollTop: $(nextElem).offset().top - topMenuHeight }, 500);
+            return false;
+        }, 250);
     });
 
 
     //menu
 
-    $('.application__item__title').click(function(){
+    /*$('.application__item__title').click(function(){
         setTimeout(function(){
             $(window).trigger('scroll');
         }, 250);
-    });
+    });*/
 
 
 });
+
+//sticky sidebar at offices, application and profession pages
+
+(function() {
+  $('.two-columns__left-column, .two-columns__right-column').theiaStickySidebar({
+    additionalMarginTop: 113
+  });
+})();
+
+//svg support at IE and old browsers
+
+svg4everybody();
+
+//обнуляем правый маржин у левой колонки новостей, если в ней "пусто"
+
+setInterval(function () {
+    var newsInLeftCol = [];
+    $('.news__left-column').children('.news__item').each(function() {
+        if($(this)[0].style.display == 0) {
+            newsInLeftCol.push(true);
+        } else {
+          newsInLeftCol.push(false);
+        }
+    });
+    
+    if (newsInLeftCol.every(function (item) {
+        return item;
+    })) {
+       $('.news__left-column').css({'margin-right' : '0'});
+    } else {
+       $('.news__left-column').removeAttr('style');
+    }
+}, 200);
+
+
+
