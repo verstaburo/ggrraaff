@@ -3,7 +3,7 @@
 
 /*==========  Desktop First  ==========*/
 
-@media only screen and (min-width : 1200px)
+@media only screen and (min-width : 1201px)
 
     .navbar
         display: block
@@ -27,20 +27,26 @@
 
     .visible-md
         display: block !important
-        
+    
+    .toggle-mobile-menu.visible-md
+        display: flex !important
 
     .hidden-md
         display: none !important
-        
+    
+    .main-header
+        padding: 0
+        min-height: 112px
 
     .logo
+        padding: 28px 0
         margin-right: 33px
         
 
     .navbar
         display: none
         position: absolute
-        top: 113px
+        top: 112px
         right: 0
         width: 466px 
         z-index: 60 
@@ -94,8 +100,13 @@
         
 
     .toggle-mobile-menu
-        margin: -25px 14px -22px 0
-        height: 113px
+        order: 3
+        margin: 0 14px 0 auto
+        height: 112px;
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: flex-start
         
         &.active
             background: linear-gradient(to bottom, #171919, #364c5b)
@@ -116,8 +127,8 @@
             // width: 39px
             // height: 36px
             width: 102px
-            height: 113px
-            padding: 0 32px 5px 31px
+            height: 100%
+            padding: 0 32px
             
             span
                 position: relative
@@ -232,6 +243,8 @@
             
 
     .two-columns
+        display: block
+        
         &__left-column
             display: none
         
@@ -342,19 +355,23 @@
             &--big
                 .news
                     &__img-block
-                        width: 355px 
+                        width: 355px
                         overflow: hidden
                         
                         img
                             height: 100%
                             width: auto
-                            max-width: none  
+                            max-width: none
                             
                     &__right-side
-                        width: calc(100% - 450px)
+                        box-sizing: border-box
+                        width: calc(100% - 355px)
+                        padding-top: 0
+                        margin-left: 0
         
         &__left-column
-            width: 244px
+            max-width: 244px
+            margin-right: 37px
             overflow: hidden
             
             .news
@@ -367,7 +384,7 @@
                 max-width: none
                 
         &__right-column
-            width: 671px
+            max-width: 671px
             
             .news
                 &__desc
@@ -390,11 +407,10 @@
 
     .footer-top-block
         .toggle-mobile-menu
-            margin: -20px 14px -14px 0
-            height: 86px
+            margin: 0 14px 0 auto
+            height: 86px;
             
             &__button
-                height: 86px
                 padding-bottom: 0
                 
                 span
@@ -462,6 +478,8 @@
                                     top: 32px
                                     left: 60px
                                     font-size: 11px
+        .white-btn
+            margin-left: 0
 
 
 @media (max-height: 767px)
@@ -486,10 +504,14 @@
                 background: #fff
                 
             .main-header
-                padding-top: 25px
+                padding: 0
+                min-height: 112px
+            
+            .logo
+                padding: 28px 0
                 
             .navbar
-                top: 113px
+                top: 112px
             
             .fixed-info
                 display: block
@@ -497,6 +519,9 @@
                 &.hidden-sm,
                 &.hidden-xs
                     display: none
+            
+            .toggle-mobile-menu
+                height: 112px
     
     .container
         //width: 768px
@@ -517,8 +542,14 @@
         
 
     .main-header
-        padding-top: 32px
-        
+        padding: 0;
+        min-height: 120px
+    
+    .logo
+        padding: 32px 0
+    
+    .toggle-mobile-menu
+        height: 120px
 
     .navbar
         top: 120px
@@ -537,6 +568,19 @@
             margin-top: 92px
             line-height: 70px
             margin-bottom: 3px
+            
+            .gradient-text
+          
+                svg
+                    height: 55px
+                  
+                &__text
+                    font-size: 55px
+                    
+                    &--tablet
+                        display: block
+                    &--mobile
+                        display: none
             
         &__left-side
             width: 346px
@@ -605,6 +649,10 @@
         
         &__content
             display: none
+
+        &__wrap
+            .radio-content--paper
+                width: 100%
             
 
     .advantages
@@ -774,10 +822,10 @@
                         width: 244px 
                     
                     &__right-side
-                        width: calc(100% - 320px) 
+                        width: calc(100% - 244px) 
                         
         &__right-column
-            width: 408px
+            max-width: 413px
             
             .news
                 &__item
@@ -808,12 +856,14 @@
             float: none
             width: 100%
             margin-bottom: 36px 
+            margin-right: 0
                     
         &--inner
             .news
                 &__left-column
                     width: 100%
                     float: none
+                    max-width: none
                     
                     .news
                         &__item
@@ -838,6 +888,11 @@
             
             .copyright
                 margin-bottom: 0
+    
+    .footer-top-block
+        
+        .toggle-mobile-menu
+            height: 86px !important
 
 
 /* Small Devices, Tablets */
@@ -861,11 +916,14 @@
         padding-bottom: 0
         
         &.main-page
-            .main-header
-                padding-top: 17px
+            .logo
+                padding: 17px 0
+            
+            .toggle-mobile-menu
+                height: 58px
     
     .container
-        width: 320px
+        width: 100%
         padding: 0 19px
         
 
@@ -885,12 +943,11 @@
         
 
     .main-header
-        padding-top: 17px
-        padding-bottom: 0
-        min-height: inherit
+        min-height: 58px !important
         
 
     .logo
+        padding: 17px 0
         width: 150px
         margin-right: 0
         
@@ -899,14 +956,13 @@
             
 
     .toggle-mobile-menu
-        height: 60px
-        margin: -17px 0 0
+        margin-left: auto
+        height: 58px
         
         &__button
             width: 53px
             padding-left: 15px
             padding-right: 15px
-            height: 60px 
             
             span
                 height: 4px
@@ -920,7 +976,7 @@
 
     .navbar
         width: 233px
-        top: 60px !important
+        top: 58px !important
         padding: 15px 0
         
         &__nav 
@@ -951,6 +1007,20 @@
             font-size: 21px
             line-height: normal
             margin-top: 45px
+            
+            .gradient-text
+          
+                svg
+                    height: 21px
+                  
+                &__text
+                    font-size: 21px
+                    
+                    &--tablet
+                        display: none
+                    
+                    &--mobile
+                        display: block
             
         &__left-side
             width: 100%
@@ -1029,6 +1099,8 @@
                     float: none
                     
                     img
+                        width: 100%
+                        height: auto
                         transform: none
                         
                 &__right-side
@@ -1134,10 +1206,6 @@
             &.success-send
                 .fixed-info__item__success-send
                     left: 60px
-                
-        &__content    
-            .close-btn
-                top: 18px
                     
         &__title
             font-size: 22px
@@ -1388,6 +1456,22 @@
         &__title
             font-size: 22px
             
+            .gradient-text
+                width: 100%
+
+                svg
+                    width: 100%
+                    height: 22px
+
+                &__text
+                    font-size: 22px
+
+                    &--main
+                        display: none
+
+                    &--mobile
+                        display: block
+            
         &__flex-wrap
             display: block
             
@@ -1401,6 +1485,11 @@
             &__text
                 font-size: 12px
                 line-height: normal
+            
+            &__img-block
+                img
+                    width: 100%
+                    height: auto
                 
 
     .breadcrumbs
@@ -1499,6 +1588,12 @@
                  
             &__title
                 font-size: 22px
+            
+            &__wrap--noopen
+                margin: 0 20px
+                 
+            &__title--noopen
+                font-size: 22px
                 
                 &--white-bg
                     padding: 15px 0 0 15px
@@ -1543,6 +1638,25 @@
                         width: 120px
             
             &__title
+                height: 63px
+                padding: 12px 12px 15px
+                font-size: 19px
+                
+                &::after
+                    top: 32.5px;
+                    transform: translate(0, -50%) rotate(90deg);
+                
+                &::before
+                    margin-top: 0
+                    transform: translate(0, -50%)
+                    
+                
+                .text
+                    font-size: 19px
+                    width: calc(100% - 60px)
+                    line-height: 21px
+            
+            &__title--noopen
                 padding: 12px 12px 15px
                  
                 .icon-block
@@ -1636,12 +1750,11 @@
                             
                         &::after
                             right: 18px
-                            top: 30px
                             
                         .text
                             font-size: 13px
-                            display: inline-block
-                            width: auto  
+                            display: inline
+                            width: auto
                             
                     &__td
                         width: 68px
@@ -1812,6 +1925,9 @@
                 margin-bottom: 0
                 
         &__input-text
+            font-size: 12px
+
+        &__text
             font-size: 12px
                     
 
@@ -2005,6 +2121,10 @@
                 
         &__item
             &--big
+                a
+                    flex-wrap: wrap
+                    align-content: flex-start
+                
                 .news
                     &__img-block
                         width: 100%
@@ -2017,9 +2137,12 @@
                         
         &__left-column
             width: 100%
+            max-width: none
+            margin-right: 0
             
         &__right-column 
             width: 100%
+            max-width: none
             
             .news
                 &__right-side
@@ -2034,7 +2157,7 @@
         &__inner-page
             .news
                 &__img-block
-                    height: 258px
+                    height: auto
                      
                 &__date
                     font-size: 10px
@@ -2059,6 +2182,10 @@
                             width: 100%
                             margin-right: 0
                             
+        &__img-block
+            img
+                width: 100%
+                height: auto
 
     .success
         &__icon-block
@@ -2084,11 +2211,10 @@
                 
 
     .footer-top-block
-        padding-top: 17px
-        padding-bottom: 0
         
         .logo-footer
             width: 150px
+            padding: 18px 0
             
         .white-btn
             width: 72px
@@ -2098,8 +2224,9 @@
             line-height: 14px
             
         .toggle-mobile-menu
-            height: 60px
-            margin: -17px 0 0
+            height: 60px !important
+            margin: 0
+            margin-left: auto
             
             &__button
                 height: 60px
@@ -2167,16 +2294,53 @@
 
     .fixed-info-popup
         width: 320px 
+    
+    .joinus
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: flex-start
+        width: 100%
+        padding: 0
+        height: auto
+        
+        div
+            box-sizing: border-box
+            padding: 20px
+            width: auto
+        
+        .signin-button
+            display: block
+            position: relative
+            box-sizing: border-box
+            text-align: center
+            padding: 20px
+            height: auto
+            margin-left: auto
+            
+    .slick-slide
+        img
+            width: 100%
 
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px)
-    /**/
+@media only screen and (max-width : 500px)
+    .joinus
+        flex-direction: column
+        
+        div
+            width: 100%
+        
+        .signin-button
+            width: 100%
+            padding: 20px
+            height: auto
+            margin-left: 0
 
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
-    /**/
+        /**/
 
 
 

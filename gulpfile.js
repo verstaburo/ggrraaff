@@ -16,7 +16,8 @@ var gulp           = require('gulp'),
 	svgSprite      = require('gulp-svg-sprite'),
 	svgmin         = require('gulp-svgmin'),
 	cheerio        = require('gulp-cheerio'),
-	replace        = require('gulp-replace');
+	replace        = require('gulp-replace'),
+    ghpages        = require('gulp-gh-pages');
 
 gulp.task('svgSpriteBuild', function () {
 	return gulp.src('app/svg/*.svg')
@@ -69,7 +70,8 @@ gulp.task('scripts', function() {
 		'app/libs/photoswipe/dist/photoswipe-ui-default.min.js',
 		'app/libs/jquery-touchswipe/jquery.touchSwipe.min.js',
 		'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
-		'app/libs/svg4everybody/dist/svg4everybody.js'
+		'app/libs/svg4everybody/dist/svg4everybody.js',
+        'app/libs/sticky-sidebar/theia-sticky-sidebar.min.js'
 		// 'app/js/common.js', // Всегда в конце
 		])
 	.pipe(concat('scripts.min.js'))
@@ -155,7 +157,13 @@ gulp.task('deploy', function() {
 
 });
 
+gulp.task('ghpages', function () {
+    return gulp.src('./dist/**/*')
+    .pipe(ghpages());
+});
+
 gulp.task('removedist', function() { return del.sync('dist'); });
 gulp.task('clearcache', function () { return cache.clearAll(); });
 
 gulp.task('default', ['watch']);
+

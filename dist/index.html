@@ -27,6 +27,24 @@
 </head>
 
 <body>
+    <svg class="svg-gradients">
+        <defs>
+            <linearGradient id="textGradient1" x1="0" y1="0" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#364b59" />
+                <stop offset="100%" stop-color="#181b1c" />
+            </linearGradient>
+          
+            <linearGradient id="textGradient2" x1="0" y1="0" x2="0" y2="100%">
+                <stop offset="0%" stop-color="#7ec041" />
+                <stop offset="100%" stop-color="#6aa443" />
+            </linearGradient>
+          
+            <linearGradient id="social-link-gradient" x1="0" y1="0" x2="100%" y2="0">
+                <stop offset="0%" stop-color="#76d222"/>
+                <stop offset="100%" stop-color="#519623"/>
+            </linearGradient>
+        </defs>
+    </svg>
 
     <!-- begin .main-wrapper -->
     <div class="main-wrapper main-page">
@@ -1093,13 +1111,22 @@
 
                     <h2 class="about__title visible-sm">
                         MeisterAkademie Graf - 
-                        <span>Ihre Meisterschule</span>
+                        <div class="gradient-text">
+                          <svg>
+                            <text class="gradient-text__text gradient-text__text--tablet" x="0" y="55">Ihre Meisterschule</text>
+                            <text class="gradient-text__text gradient-text__text--mobile" x="0" y="21">Ihre Meisterschule</text>
+                          </svg>
+                        </div>
                     </h2>
                     
                     <div class="about__left-side">
                         <h2 class="about__title hidden-sm">
-                            MeisterAkademie Graf - 
-                            <span>Ihre Meisterschule</span>
+                            MeisterAkademie Graf -
+                        <div class="gradient-text">
+                          <svg>
+                            <text class="gradient-text__text" x="0" y="40">Ihre Meisterschule</text>
+                          </svg>
+                        </div>
                         </h2>
                         <p>
                             Herzlich Willkommen bei der MeisterAkademie Graf®, Ihrem Spezialisten für Meister- und Industriemeisterberufe. 
@@ -1401,7 +1428,13 @@
             <div class="articles">
                 <div class="container">
                     
-                    <div class="articles__title">Aktuelle Artikel</div>
+                    <div class="articles__title">
+                        <div class="gradient-text">
+                            <svg>
+                                <text class="gradient-text__text gradient-text__text--main" x="0" y="43">Aktuelle Artikel</text>
+                                <text class="gradient-text__text gradient-text__text--mobile" x="0" y="22">Aktuelle Artikel</text>
+                            </svg>
+                        </div></div>
 
                     <div class="articles__flex-wrap">
                         <div class="articles__item has-animate">
@@ -1625,7 +1658,7 @@
                             </ul>
                         </div>
                         <div class="copyright">
-                            © 2016 MeisterAkademie Graf
+                            &copy; 2016 MeisterAkademie Graf
                         </div>
                     </div>
                     <div class="right hidden-sm">
@@ -1635,7 +1668,7 @@
                         <div class="print">
                             <img src="img/common/print-img.png" alt="">
                         </div>
-                        <div class="site-makers">Development & support :
+                        <div class="site-makers">Development &amp; support :
                             <a href="#" target="_blank">
                                 <svg class="icon icon-site-makers">
                                     <use xlink:href="svg/sprite/sprite.svg#site-makers"></use>
@@ -1646,31 +1679,13 @@
                     <div class="center">
                         <div class="social-links">
                             <a href="#" class="social-links__item" target="_blank">
-                                <svg class="icon icon-facebook-icon">
-                                    <linearGradient id="linear-gradient-link">
-                                        <stop offset="0%" stop-color="#76d222"/>
-                                        <stop offset="100%" stop-color="#519623"/>
-                                    </linearGradient>
-                                    <use fill="url(#linear-gradient-link)" xlink:href="svg/sprite/sprite.svg#facebook-icon"></use>
-                                </svg>
+                                <img class="icon icon-facebook-icon" src="svg/icon-facebook.svg" alt="">
                             </a>
                             <a href="#" class="social-links__item" target="_blank">
-                                <svg class="icon icon-twitter-icon">
-                                    <linearGradient id="linear-gradient-link">
-                                        <stop offset="0%" stop-color="#76d222"/>
-                                        <stop offset="100%" stop-color="#519623"/>
-                                    </linearGradient>
-                                    <use fill="url(#linear-gradient-link)" xlink:href="svg/sprite/sprite.svg#twitter-icon"></use>
-                                </svg>
+                                <img class="icon icon-twitter-icon" src="svg/icon-twitter.svg" alt="">
                             </a>
                             <a href="#" class="social-links__item" target="_blank">
-                                <svg class="icon icon-pint-icon">
-                                    <linearGradient id="linear-gradient-link">
-                                        <stop offset="0%" stop-color="#76d222"/>
-                                        <stop offset="100%" stop-color="#519623"/>
-                                    </linearGradient>
-                                    <use fill="url(#linear-gradient-link)" xlink:href="svg/sprite/sprite.svg#pint-icon"></use>
-                                </svg>
+                                <img class="icon icon-pint-icon" src="svg/icon-pint.svg" alt="">
                             </a>
                         </div>
                     </div>
@@ -1680,7 +1695,7 @@
 
                 <div class="block-on-mobile visible-sm">
                     <div class="site-makers">
-                        Development & support :
+                        Development &amp; support :
                         <a href="#" target="_blank">
                             <svg class="icon icon-site-makers">
                                 <use xlink:href="svg/sprite/sprite.svg#site-makers"></use>
@@ -2501,7 +2516,7 @@
     <!-- end popups -->
     
     <link rel="stylesheet" href="css/main.min.css">
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCe5hWSVca3_L9dnjSVZyjTa2GSQHuviPU"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe5hWSVca3_L9dnjSVZyjTa2GSQHuviPU"></script>
     <script src="js/scripts.min.js"></script>
     <script src="js/common.js"></script>
 
