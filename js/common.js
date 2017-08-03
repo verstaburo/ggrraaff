@@ -944,6 +944,10 @@ $(document).ready(function () {
 
 svg4everybody();
 
+//object-fit support
+
+objectFitImages();
+
 //обнуляем правый маржин у левой колонки новостей, если в ней "пусто"
 
 setInterval(function () {
