@@ -29,5 +29,8 @@
     "gulp-util": "^3.0.7",
     "node-bourbon": "^4.2.8",
     "vinyl-ftp": "^0.6.0"
+  },
+  "dependencies": {
+    "object-fit-images": "^3.2.3"
   }
 }
