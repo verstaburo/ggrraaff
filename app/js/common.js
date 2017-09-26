@@ -220,6 +220,7 @@ $(function () {
     $(document).on('click', '.overlay', function(event) {
       $('.overlay').fadeOut(200);
       $('.fixed-info-panel').removeClass('active');
+      $('body').removeClass('fixed');
     });
 
     $('.fixed-info__content .close-btn').click(function () {
