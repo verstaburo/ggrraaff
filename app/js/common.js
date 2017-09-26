@@ -204,6 +204,23 @@ $(function () {
             $('.fixed-info').toggleClass('open');
         }
     });
+  
+    $(document).on('click', '.fixed-info-panel__header', function(event) {
+      if($('.fixed-info-panel').hasClass('active')) {
+        $('.overlay').fadeOut(200);
+        $('body').removeClass('fixed');
+        $('.fixed-info-panel').removeClass('active');
+      } else {
+        $('.overlay').fadeIn(200);
+        $('.fixed-info-panel').addClass('active');
+        $('body').addClass('fixed');
+      }
+    });
+  
+    $(document).on('click', '.overlay', function(event) {
+      $('.overlay').fadeOut(200);
+      $('.fixed-info-panel').removeClass('active');
+    });
 
     $('.fixed-info__content .close-btn').click(function () {
         if ($(window).width() < 992) {
@@ -229,36 +246,36 @@ $(function () {
         }
     });
 
-    $('.fixed-info-popup .fixed-info__item').click(function (e) {
+    $('.fixed-info-panel .fixed-info__item').click(function (e) {
         var container = $("fixed-info__item__radio-btn");
         if (container.has(e.target).length === 0) {
             return;
         }
-        $('.fixed-info-popup .fixed-info__wrap').css({
+        $('.fixed-info-panel .fixed-info__wrap').css({
             'height': ''
         });
     });
 
-    $('.fixed-info-popup .fixed-info__item__label-text').click(function () {
+    $('.fixed-info-panel .fixed-info__item__label-text').click(function () {
         var radioToggle = $(this).attr('data-radio-toggle'),
             radioContentActive = $(this).parents('.fixed-info__item__hidden-block').find('div[data-radio-content="' + radioToggle + '"]');
 
         if ($(window).width() > 992) {
             if (radioToggle === 'radio-cont2') {
-                $('.fixed-info-popup .fixed-info__wrap').css({
+                $('.fixed-info-panel .fixed-info__wrap').css({
                     'height': radioContentActive.outer + 125 + 'px'
                 });
             } else {
-                $('.fixed-info-popup .fixed-info__wrap').css({
+                $('.fixed-info-panel .fixed-info__wrap').css({
                     'height': ''
                 });
             }
         } else if ($(window).width() > 767) {
-            $('.fixed-info-popup .fixed-info__wrap').css({
+            $('.fixed-info-panel .fixed-info__wrap').css({
                 'height': radioContentActive.height() + 148 + 'px'
             });
         } else {
-            $('.fixed-info-popup .fixed-info__wrap').css({
+            $('.fixed-info-panel .fixed-info__wrap').css({
                 'height': radioContentActive.height() + 62 + 'px'
             });
         }

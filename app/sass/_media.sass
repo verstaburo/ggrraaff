@@ -515,6 +515,11 @@
             
             .fixed-info
                 display: block
+                opacity: 0;
+                pointer-events: none
+                width: 1px
+                height: 1px
+                overflow: hidden
 
                 &.hidden-sm,
                 &.hidden-xs
@@ -539,7 +544,9 @@
 
     .fixed-info
         display: none
-        
+    
+    .fixed-info-panel
+        display: block
 
     .main-header
         padding: 0;
@@ -2292,8 +2299,8 @@
         text-align: left
         
 
-    .fixed-info-popup
-        width: 320px 
+    .fixed-info-panel
+        width: 100% 
     
     .joinus
         display: flex
@@ -2322,7 +2329,6 @@
         img
             width: 100%
 
-
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 500px)
     .joinus
@@ -2336,6 +2342,15 @@
             padding: 20px
             height: auto
             margin-left: 0
+        
+        .fixed-info-panel
+          .fixed-info
+              &__title1,
+              &__title2,
+              &__title3
+                background-size: auto 100%
+                padding: 10px 20px;
+                height: auto
 
 
 /* Custom, iPhone Retina */

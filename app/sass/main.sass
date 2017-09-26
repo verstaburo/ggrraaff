@@ -5157,32 +5157,164 @@ input
     z-index: 80
     display: none
 
-.fixed-info-popup
+.fixed-info-panel
     display: none
-    position: absolute
-    top: 20px
-    left: 50%
-    transform: translateX(-50%)
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+    transform: translateY(100%)
     z-index: 100
-    width: 694px
-    overflow: hidden
+    width: 100%
+    transform: translate3d(0, 100%, 0);
+    transition: all .4s ease-in-out;
+    box-sizing: border-box
+  
+    &__header
+      position: relative;
+      box-shadow: inset 0 1px 0 #6ba541, -1px 1px 5px 1px rgba(0, 0, 0, 0.1), 0 -1px 3px 1px rgba(0, 0, 0, 0.39);
+      background-color: #2f3640;
+      background-image: linear-gradient(to top, #161717 0%, #374d5c 99%, #374e5d 100%);
+      z-index: 2;
+      cursor: pointer;
+  
+    &__close
+      position: absolute
+      top: -9px
+      right: 8px
+      opacity: 0;
+      pointer-events: none;
+      width: 23px
+      height: 23px
+      display: inline-flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      cursor: pointer;
+      transform: translate3d(0, -100%, 0);
+      transition: all .4s ease-in-out
+      z-index: 4
+      
+      .icon
+        stroke: #fff;
+        stroke-width: 3;
+        width: 23px
+        height: 23px
+        font-size: 0
+        
+    &__title
+      color: #fdfefd;
+      font-family: $mtb
+      font-size: 11px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+      text-align: center
+    
+    &__top
+      position: absolute
+      top: 0
+      left: 50%
+      width: 45px
+      height: 10px
+      transform: translate3d(-50%, -100%, 0);
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: flex-start
+      overflow: hidden
+      cursor: pointer;
+      
+    &__finger
+      position: absolute
+      top: 0
+      left: 50%
+      width: 54px
+      height: 14px
+      transform: translate(-50%, 0);
+      
+    &__arrow
+      position: absolute
+      top: 5px
+      left: 50%
+      display: inline-flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      width: 6px
+      height: 4px
+      transform: translate3d(-50%, 0, 0) rotate(180deg)
+      
+      .icon
+        width: 6px
+        height: 4px
+        fill: #fff
+      
+    &__icon
+      display: inline-block
+      width: 9px
+      height: 9px
+      margin: auto 0
+      margin-right: 6px
+      position: relative
+      
+      &::before,
+      &::after
+        position: absolute
+        content: ''
+        background-color: #fff
+      
+      &::before
+        top: 4px
+        left: 0
+        width: 9px
+        height: 1px
+      
+      &::after
+        top: 0
+        left: 4px
+        width: 1px
+        height: 9px
+        opacity: 1;
+        transform: scale3d(1, 1, 1)
+        transition: all .25s ease-in-out
+  
+    &.active
+      transform: translate3d(0, 0, 0);
+      bottom: 0;
+      
+      .fixed-info-panel
+        
+        &__close 
+          opacity: 1;
+          pointer-events: all;
+        
+        &__icon
+          &::after
+            opacity: 0
+            transform: scale3d(1, .8, 1)
+        
+        &__arrow
+          transform: translate3d(-50%, 0, 0) rotate(0deg)
 
     .fixed-info
         &__title1
-            font-size: 20px
+            font-size: 22px
             line-height: 30px
 
         &__title2
-            font-size: 20px
+            font-size: 22px
             line-height: 30px
 
         &__title3
-            font-size: 20px
+            font-size: 22px
             line-height: 30px
 
         &__content
             display: block
             width: 100%
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: calc(100vh - 60px);
+            box-sizing: border-box
 
         &__wrap
             .radio-content
@@ -5202,6 +5334,8 @@ input
                 &__button
                     left: 50%
                     transform: translateX(-50%)
+            &__bottom-wrap
+              max-width: none
 
 
 .mfp-bg
@@ -5262,7 +5396,8 @@ input
 /* ======================================================== */
 /* End popups */
 /* ======================================================== */
-
+.fixed 
+  overflow: hidden
 
 @import "media" // Всегда в конце
 
