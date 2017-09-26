@@ -1,0 +1,19 @@
+<svg width="106.83" height="27.605" version="1.1" viewBox="0 0 106.83308 27.605342" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path id="a" d="m278.81 397.87c8.26 0 26.17-16.24 43.12-16.85v-0.02a26.98 26.98 0 0 1 0.98 0v0.02c17.01 0.61 34.98 16.85 43.27 16.85 6.02 0-22.06 3.11-38.71 4.9 0.84 1 1.45 1.23 1.45 1.23l-6.5-0.69-6.53 0.69s0.62-0.24 1.46-1.23c-16.6-1.8-44.53-4.9-38.54-4.9z"/>
+  <linearGradient id="b" x1="322.01" x2="322.99" y1="404" y2="381" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#69a343" offset="0"/>
+   <stop stop-color="#7fc241" offset=".99"/>
+  </linearGradient>
+  <filter id="filter54" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".39216" result="flood"/>
+   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+   <feGaussianBlur in="composite1" result="blur" stdDeviation="3"/>
+   <feOffset dx="0" dy="-2" result="offset"/>
+   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
+  </filter>
+ </defs>
+ <g transform="translate(-269.08 -378.7)" filter="url(#filter54)">
+  <use width="100%" height="100%" fill="url(#b)" xlink:href="#a"/>
+ </g>
+</svg>
