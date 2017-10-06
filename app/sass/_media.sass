@@ -61,7 +61,7 @@
             > li
                 font-size: 35px 
                 
-                a
+                a, p, span
                     color: #fff
                     padding: 19px 57px 11px
                     height: auto
@@ -492,6 +492,10 @@
 
     .map-mini
         margin-top: 20px !important
+
+@media (max-width: 767px)
+    .main-header.fixed .navbar
+        max-height: calc(100vh - 72px)
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
@@ -990,7 +994,7 @@
             > li
                 font-size: 20px
                 
-                a
+                a, >p, >span
                     padding: 7px 23px 3px
                     
         li
@@ -2247,7 +2251,7 @@
                 > li
                     font-size: 20px
                     
-                    a
+                    a, >p, >span
                         padding: 7px 23px 3px
                         
             > ul

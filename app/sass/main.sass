@@ -1077,6 +1077,11 @@ input
         width: 100%
         left: 0
         z-index: 30
+        overflow: visible
+
+        .navbar
+            max-height: calc(100vh - 112px)
+            overflow: auto
 
 
 .logo
@@ -1155,9 +1160,13 @@ input
                 display: none
 
             &.sfHover
-                > a
+                > a, >p, >span, >div
                     background: #364c5b
                     color: #fff
+
+            >a, >p, >span, >div
+                font-size: inherit
+                margin: 0
 
             > ul
                 position: absolute
@@ -5398,6 +5407,11 @@ input
 /* ======================================================== */
 .fixed 
   overflow: hidden
+
+.fixed-info-panel .fixed-info__wrap
+    height: auto !important
+
+
 
 @import "media" // Всегда в конце
 
